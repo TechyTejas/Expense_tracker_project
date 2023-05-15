@@ -1,4 +1,5 @@
 // import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 import ExpenseItem from './components/ExpenseItem';
 
@@ -19,12 +20,19 @@ function App() {
     />;
   });
 
+  // return React.createElement(
+  //   'div',
+  //   {},
+  //   React.createElement('h2',{},"Let's get started !"),
+  //   React.createElement(ExpenseItem,{items: expenseItems})
+  // )
   return (
     <div >
       <h2>lets get started..!</h2>
       {expenseItems}
     </div>
   );
+
 }
 
 export default App;
