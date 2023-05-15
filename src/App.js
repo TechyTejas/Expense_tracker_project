@@ -1,9 +1,9 @@
 // import logo from './logo.svg';
 import React from 'react';
 import './App.css';
-import ExpenseItem from './components/ExpenseItem';
+import ExpenseItem from './components/Expense/ExpenseItem';
 
-function App() {
+const App=()=> {
   const expenses=[
     { id:'e1',title:'Car Insurance',amount:299.99,date:new Date(2020,7,14),LocationOfExpenditure :"Nashik"},
     { id:'e2',title:'New TV',amount:125.99,date:new Date(2020,8,19),LocationOfExpenditure :"Pune"},
