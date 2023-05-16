@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 import ExpenseItem from './components/Expense/ExpenseItem';
 
+
 const App=()=> {
   const expenses=[
     { id:'e1',title:'Car Insurance',amount:299.99,date:new Date(2020,7,14),LocationOfExpenditure :"Nashik"},
@@ -28,8 +29,8 @@ const App=()=> {
   // )
   return (
     <div >
-      <h2>lets get started..!</h2>
-      {expenseItems}
+      <h1>lets get started  ..!</h1>
+      <div className='expenses'>{expenseItems}</div>  
     </div>
   );
 
