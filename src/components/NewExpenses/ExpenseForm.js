@@ -2,37 +2,64 @@ import React,{useState} from 'react';
 import './ExpenseForm.css';
 
  const ExpenseForm = () => {
-    //   function submitHandler(event ) {
+      function submitHandler(event ) {
         
-    //         event.preventDefault();
+            event.preventDefault();
     //         const title = document.getElementById('title').value;
     //         const amnt = document.getElementById('amnt').value;
     //         const date = document.getElementById('date').value;
     //         event.target.reset();
     //         console.log(title+" "+amnt+" "+date);
-          
-    //     }
+          const expenseData={  title : enteredTitle,
+               amount : enteredAmount,
+               date : new Date(enteredDate)
+          }
+          event.target.reset();
+          console.log(expenseData)
+        }
     const[enteredTitle, setEnteredTitle] = useState('');
     const[enteredAmount, setEnteredAmount] = useState('');
     const[enteredDate, setEnteredDate] = useState('');
-
+    //    const[userInput, setUserInput] = useState({
+    //     EnteredTitle : '',
+    //     EnteredAmount : '',
+    //     EnteredDate : ''
+    //    });
+       
     const titleChangeHandler = (event) =>{
        setEnteredTitle(event.target.value);
+    // setUserInput({
+    //     ...userInput,
+    //     enteredTitle : event.target.value,
+    // })
     };
+
+    // if we have to depend on prevstate
+    //    setUserInput((prevState) =>{
+    //     return {...prevState, EnteredTitle : event.target.value};
+    //    });
 
     const amountChangeHandler = (event) =>{
         setEnteredAmount(event.target.value);
+    //     setUserInput({
+    //     ...userInput,
+    //     enteredAmount : event.target.value,
+    // })
     }
 
     const dateChangeHandler = (event) =>{
         setEnteredDate(event.target.value);
+        // setUserInput({
+        //     ...userInput,
+        //     enteredDate : event.target.value,
+        // })
     }
 
 
 
     return (
         //  <onSubmit={submitHandler}></>
-           <form  >
+           <form onSubmit={submitHandler} >
         
              <div className='new-expense__controls'>
             <div className="new-expense__control label">
