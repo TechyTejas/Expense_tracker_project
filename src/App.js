@@ -1,17 +1,25 @@
 // import logo from './logo.svg';
-import React from 'react';
+import React, {useState} from'react';
 import './App.css';
 import ExpenseItem from './components/Expense/ExpenseItem';
 import NewExpense from './components/NewExpenses/NewExpense';
 
 
 const App=()=> {
-  const expenses=[
-    { id:'e1',title:'Car Insurance',amount:299.99,date:new Date(2020,7,14),LocationOfExpenditure :"Nashik"},
-    { id:'e2',title:'New TV',amount:125.99,date:new Date(2020,8,19),LocationOfExpenditure :"Pune"},
-    { id:'e3',title:'New AC',amount:165.99,date:new Date(2020,10,21),LocationOfExpenditure :"Pune"},
-    { id:'e4',title:'Pinnut Butter',amount:100.99,date:new Date(2020,11,19),LocationOfExpenditure :"Mumbai"},
-  ]
+  const [expenses, setExpenses] = useState([
+    { id: 'e1', title: 'Car Insurance', amount: 299.99, date: new Date(2020, 7, 14), LocationOfExpenditure: "Nashik" },
+    { id: 'e2', title: 'New TV', amount: 125.99, date: new Date(2020, 8, 19), LocationOfExpenditure: "Pune" },
+    { id: 'e3', title: 'New AC', amount: 165.99, date: new Date(2020, 10, 21), LocationOfExpenditure: "Pune" },
+    { id: 'e4', title: 'Pinnut Butter', amount: 100.99, date: new Date(2020, 11, 19), LocationOfExpenditure: "Mumbai" },
+  ]);
+
+  
+  const addExpenseHandler = (expense) => {
+    setExpenses((prevExpenses) => {
+      return [...prevExpenses, expense];
+    });
+  }
+
   const expenseItems = expenses.map((expense) => {
     return <ExpenseItem 
       key={expense.id} // You should always provide a unique key prop when rendering an array of components
@@ -30,7 +38,7 @@ const App=()=> {
   // )
   return (
     <div >
-      <NewExpense/>
+      <NewExpense onAddExpense={addExpenseHandler}/>
       <div className='expenses'>{expenseItems}</div>  
       
     </div>
