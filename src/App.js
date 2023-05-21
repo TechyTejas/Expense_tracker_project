@@ -1,9 +1,8 @@
-// import logo from './logo.svg';
-import React, {useState} from'react';
-import './App.css';
-import ExpenseItem from './components/Expense/ExpenseItem';
-import NewExpense from './components/NewExpenses/NewExpense';
 
+import React, {useState} from'react';
+import './App.css'; 
+import NewExpense from './components/NewExpenses/NewExpense';
+import Expenses from './components/Expense/Expenses';
 
 const App=()=> {
   const [expenses, setExpenses] = useState([
@@ -19,16 +18,17 @@ const App=()=> {
       return [...prevExpenses, expense];
     });
   }
+  
 
-  const expenseItems = expenses.map((expense) => {
-    return <ExpenseItem 
-      key={expense.id} // You should always provide a unique key prop when rendering an array of components
-      title={expense.title} 
-      amount={expense.amount} 
-      date={expense.date} 
-      location={expense.LocationOfExpenditure}
-    />;
-  });
+  // const expenseItems = expenses.map((expense) => {
+  //   return <ExpenseItem 
+  //     key={expense.id} // You should always provide a unique key prop when rendering an array of components
+  //     title={expense.title} 
+  //     amount={expense.amount} 
+  //     date={expense.date} 
+  //     location={expense.LocationOfExpenditure}
+  //   />;
+  // });
 
   // return React.createElement(
   //   'div',
@@ -39,7 +39,8 @@ const App=()=> {
   return (
     <div >
       <NewExpense onAddExpense={addExpenseHandler}/>
-      <div className='expenses'>{expenseItems}</div>  
+      {/* <div className='expenses'>{expenseItems}</div>  */}
+      <Expenses items={expenses}/> 
       
     </div>
   );
