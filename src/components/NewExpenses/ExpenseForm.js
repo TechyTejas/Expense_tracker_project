@@ -79,7 +79,7 @@ import './ExpenseForm.css';
             
             <div className="new-expense__actions">
              <button type="submit" className='new-expense__action'>Add Expense</button>
-             <button type="button" onClick={props.onCancel} className='new-expense__action'>Cancle</button>
+             <button type="button" onClick={props.onCancel} className='new-expense__action'>Cancel</button>
             </div>
 
           
